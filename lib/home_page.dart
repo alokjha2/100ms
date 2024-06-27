@@ -17,8 +17,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final meetingTextController = TextEditingController(
-        text:
-            "https://yogi-livestreamingkit.app.100ms.live/meeting/xuq-zjx-ovh");
+        text: 
+        "https://peckish-videoconf-1115.app.100ms.live/meeting/imd-syvb-xmz");
     final nameTextController = TextEditingController();
 
     return SafeArea(
@@ -118,7 +118,7 @@ class HomePage extends StatelessWidget {
 
   Future<bool> getPermissions() async {
     if (Platform.isIOS) return true;
-    await Permission.bluetoothConnect.request();
+    // await Permission.bluetoothConnect.request();
     await Permission.microphone.request();
     await Permission.camera.request();
 

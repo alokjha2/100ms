@@ -65,7 +65,7 @@ class RoomWidget extends StatelessWidget {
                 return Card(
                     key: Key(
                         state.peerTrackNodes[index].peer!.peerId.toString()),
-                    child: SizedBox(height: 250.0, child: VideoWidget(index)));
+                    child: SizedBox(height: 350.0, child: VideoWidget(index)));
               },
             );
           },

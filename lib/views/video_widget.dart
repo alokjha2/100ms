@@ -80,6 +80,7 @@ class _VideoWidgetState extends State<VideoWidget> {
                     const SizedBox(
                       height: 20.0,
                     ),
+                    
                     Text(
                       state.peerTrackNodes[widget.index].peer!.name,
                     )

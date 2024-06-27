@@ -14,19 +14,20 @@ class PreviewObserver implements HMSPreviewListener {
     previewCubit.hmsSdk.addPreviewListener(listener: this);
 
     previewCubit.hmsSdk.build();
-    RoomService()
-        .getToken(user: previewCubit.name, room: previewCubit.url)
-        .then((token) {
-      if (token == null) return;
-      if (token[0] == null) return;
+    // RoomService()
+    //     .getToken(user: previewCubit.name, room: previewCubit.url)
+    //     .then((token) {
+      // if (token == null) return;
+      // if (token[0] == null) return;
 
       HMSConfig config = HMSConfig(
-        authToken: token[0]!,
+        // authToken: token[0]!,
+        authToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoyLCJ0eXBlIjoiYXBwIiwiYXBwX2RhdGEiOm51bGwsImFjY2Vzc19rZXkiOiI2NjdjZmM4MjU1ZjJlZDMyYzQzNTc4M2IiLCJyb2xlIjoiaG9zdCIsInJvb21faWQiOiI2NjdjZmM4YzE3Y2U1YzE3NTIyMTIwMTUiLCJ1c2VyX2lkIjoiZjNiNGI0MGMtYWYyOS00NDRhLTgxMTktNmU5ZGExYjFhOWJlIiwiZXhwIjoxNzE5NTU5OTY2LCJqdGkiOiIzYmQ4NmM0OC04NWRkLTRiOTctODQ1OS00ZDNiOTU5ZWY0OTAiLCJpYXQiOjE3MTk0NzM1NjYsImlzcyI6IjY2N2NmYzgyNTVmMmVkMzJjNDM1NzgzOSIsIm5iZiI6MTcxOTQ3MzU2Niwic3ViIjoiYXBpIn0.ssms2eqTwCIRrW_S2OcpFhQDhhsM6Dip6_rIt53UyPE",
         userName: previewCubit.name,
       );
 
       previewCubit.hmsSdk.preview(config: config);
-    });
+    // });
   }
 
   @override

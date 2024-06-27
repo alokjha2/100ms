@@ -2,8 +2,8 @@ part of 'preview_cubit.dart';
 
 class PreviewState extends Equatable {
   const PreviewState({
-    this.isMicOff = true,
-    this.isVideoOff = true,
+    this.isMicOff = false,
+    this.isVideoOff = false,
     this.tracks = const <HMSVideoTrack>[],
   });
 
