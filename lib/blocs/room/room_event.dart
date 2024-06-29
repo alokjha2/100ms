@@ -21,7 +21,9 @@ class RoomOverviewLocalPeerScreenshareToggled extends RoomOverviewEvent {
 }
 
 class RoomOverviewLocalPeerAudioToggled extends RoomOverviewEvent {
-  const RoomOverviewLocalPeerAudioToggled();
+  const RoomOverviewLocalPeerAudioToggled(
+    
+  );
 }
 
 class RoomOverviewLeaveRequested extends RoomOverviewEvent {

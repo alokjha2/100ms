@@ -4,10 +4,11 @@ import 'dart:io';
 
 // import 'package:demo_app_with_100ms_and_bloc/views/preview_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:hmssdk_flutter/hmssdk_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:videocalling/views/preview_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   static Route route() {
     return MaterialPageRoute<void>(builder: (_) => const HomePage());
   }
@@ -15,19 +16,39 @@ class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+   HMSSDK? hmsSDK;
+
+  @override
+  void initState() {
+    super.initState();
+    initHMSSDK();
+  }
+
+  void initHMSSDK() async {
+    hmsSDK = HMSSDK();
+    await hmsSDK!.build(); // Ensure the SDK is built
+    // Now you can safely call preview
+    // hmsSDK?.preview(/* your parameters here */);
+  }
+  @override
   Widget build(BuildContext context) {
     final meetingTextController = TextEditingController(
         text: 
         "https://peckish-videoconf-1115.app.100ms.live/meeting/imd-syvb-xmz");
+        // "https://peckish-videoconf-1115.app.100ms.live/meeting/imd-syvb-xmz");
     final nameTextController = TextEditingController();
 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: Image.asset("assets/icons/hms_icon_1024.png"),
+          // leading: Image.asset("assets/icons/hms_icon_1024.png"),
           title: const Text("100ms and Bloc Demo App"),
           actions: [
-            Image.asset("assets/icons/bloc_logo.png"),
+            // Image.asset("assets/icons/bloc_logo.png"),
           ],
         ),
         body: Center(

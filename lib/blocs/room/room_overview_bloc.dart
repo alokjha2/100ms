@@ -71,6 +71,7 @@ class RoomOverviewBloc extends Bloc<RoomOverviewEvent, RoomOverviewState> {
   Future<void> _onLocalAudioToggled(RoomOverviewLocalPeerAudioToggled event,
       Emitter<RoomOverviewState> emit) async {
     hmsSdk.switchAudio(isOn: !state.isAudioMute);
+    
     emit(state.copyWith(isAudioMute: !state.isAudioMute));
   }
 
@@ -105,4 +106,13 @@ class RoomOverviewBloc extends Bloc<RoomOverviewEvent, RoomOverviewState> {
       RoomOverviewSetOffScreen event, Emitter<RoomOverviewState> emit) async {
     await roomObserver.setOffScreen(event.index, event.setOffScreen);
   }
+
+ 
+}
+
+class SdkInitializer {
+  static HMSSDK hmssdk = HMSSDK(
+      hmsTrackSetting: HMSTrackSetting(
+          audioTrackSetting: HMSAudioTrackSetting(
+              trackInitialState: HMSTrackInitState.UNMUTED)));
 }

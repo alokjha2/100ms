@@ -18,7 +18,7 @@ class PreviewCubit extends Cubit<PreviewState> {
   }
 
   void toggleVideo() {
-    hmsSdk.switchVideo(isOn: !state.isVideoOff);
+    hmsSdk.switchCamera();
 
     emit(state.copyWith(isVideoOff: !state.isVideoOff));
   }

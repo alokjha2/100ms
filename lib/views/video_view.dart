@@ -15,6 +15,6 @@ class VideoView extends StatefulWidget {
 class _VideoViewState extends State<VideoView> {
   @override
   Widget build(BuildContext context) {
-    return HMSVideoView(track: widget.track, matchParent: true);
+    return HMSVideoView(track: widget.track,setMirror: false, matchParent: true);
   }
 }

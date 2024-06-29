@@ -7,6 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:focus_detector/focus_detector.dart';
+import 'package:hmssdk_flutter/hmssdk_flutter.dart';
 import 'package:videocalling/blocs/room/room_event.dart';
 import 'package:videocalling/blocs/room/room_overview_bloc.dart';
 import 'package:videocalling/blocs/room/room_state.dart';
@@ -50,12 +51,17 @@ class _VideoWidgetState extends State<VideoWidget> {
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 200.0,
-                      width: 400.0,
-                      child: VideoView(
-                          state.peerTrackNodes[widget.index].hmsVideoTrack!),
-                    ),
+                 SizedBox(
+  height: 200.0,
+  width: 400.0,
+  child: state.peerTrackNodes[widget.index].hmsVideoTrack != null
+    ? HMSVideoView(
+        track: state.peerTrackNodes[widget.index].hmsVideoTrack!,
+        scaleType: ScaleType.SCALE_ASPECT_FIT,
+        key: ValueKey(state.peerTrackNodes[widget.index].hmsVideoTrack!.trackId),
+      )
+    : Center(child: Text("No video track available")),
+),
                     Text(
                       state.peerTrackNodes[widget.index].peer!.name,
                     )
@@ -80,7 +86,6 @@ class _VideoWidgetState extends State<VideoWidget> {
                     const SizedBox(
                       height: 20.0,
                     ),
-                    
                     Text(
                       state.peerTrackNodes[widget.index].peer!.name,
                     )

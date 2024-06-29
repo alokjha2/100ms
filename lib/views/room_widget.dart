@@ -64,8 +64,11 @@ class RoomWidget extends StatelessWidget {
               itemBuilder: (ctx, index) {
                 return Card(
                     key: Key(
-                        state.peerTrackNodes[index].peer!.peerId.toString()),
-                    child: SizedBox(height: 350.0, child: VideoWidget(index)));
+                        state.peerTrackNodes[index].peer!.peerId.toString()
+                        ),
+                    child: SizedBox(height: 400.0, child: 
+                    
+                    VideoWidget(index)));
               },
             );
           },
@@ -114,9 +117,19 @@ class RoomWidget extends StatelessWidget {
   void _onItemTapped(int index, BuildContext context) {
     switch (index) {
       case 0:
-        context
-            .read<RoomOverviewBloc>()
-            .add(const RoomOverviewLocalPeerAudioToggled());
+      // audio()
+  //   audio(){
+  //     SdkInitializer.hmssdk
+  //                                         .toggleMicMuteState();
+  //                                         print("audio used");
+  //                                     // setState(() {
+  //                                     //   isLocalAudioOn = !isLocalAudioOn;
+  //                                     // })
+  // }
+        // context
+        //     .read<RoomOverviewBloc>()
+        //     .add(const RoomOverviewLocalPeerAudioToggled());
+            // print("audio used");
         break;
       case 1:
         context
